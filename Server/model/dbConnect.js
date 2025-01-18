@@ -1,11 +1,15 @@
-import mongoose from "mongoose";
-import dotenv from 'dotenv'
-import colors from 'colors'
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 
-dotenv.config()
+dotenv.config();
 
-let connection= `${process.env.DB_URL}/${process.env.DB_NAME}`
+mongoose
+    .connect(process.env.DB_URL)
+    .then((con) => {
+        console.log("db connected!");
+    })
+    .catch((err) => {
+        console.log(err);
+    });
 
-mongoose.connect(connection).then(()=>console.log("DB is Connected with Server".bgRed)).catch((err)=>console.log(err))
-
-export default mongoose
+module.exports = mongoose;

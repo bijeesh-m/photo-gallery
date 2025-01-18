@@ -1,6 +1,6 @@
-import express from 'express'
-import uploadMiddleware from '../middlewares/MulterMiddleware.js';
-import ctr from '../controller/ctr.js';
+const express = require('express');
+const uploadMiddleware = require('../middlewares/MulterMiddleware.js');
+const ctr = require('../controller/ctr.js');
 
 const router =express.Router()
 
@@ -12,4 +12,4 @@ router.post('/save',uploadMiddleware.single('photo'), ctr.uploads )
 router.delete('/remove/:id', ctr.remove )
 
 
-export default router
+module.exports = router

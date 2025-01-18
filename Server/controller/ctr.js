@@ -1,4 +1,4 @@
-import schema from "../model/schema.js";
+const schema = require("../model/schema.js");
 const openView = async (req, res) => {
     try {
         res.status(200).send(`
@@ -82,7 +82,7 @@ const remove = async (req, res) => {
     }
 };
 
-export default {
+module.exports = {
     openView,
     uploads,
     remove,
